@@ -1,0 +1,7 @@
+<h1>Welcome to profile management system!</h1>
+<% if logged_in? %>
+    <h1>You are Logged In, <%= current_user.username %></h1>
+<%end%>
+<%= button_to "Login Admin", '/admin', method: :get%>
+<%= button_to "Login user", '/login', method: :get%>
+<%= button_to "Sign up user", '/users/new', method: :get%>

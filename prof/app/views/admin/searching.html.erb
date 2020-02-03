@@ -1,0 +1,41 @@
+<h1>Search Users</h1>
+<%= form_for 'admin/searching', method: :get do |f| %>
+ <p>
+  <%= f.label "Search by username/email_id/phone_number" %>
+  <%= text_field_tag :q, params[:q] %>
+  <%= submit_tag "Go", name: nil %>
+ </p>
+<% end %>
+<% unless @users.nil? %>
+  <% if @users.empty? %>
+    <h2>No posts found matching your query.</h2>
+  <% else %>
+    <h2>Search results</h2>
+    <table style="width: 0%;">
+      <thead>
+         <tr>
+          <th>Id</th>
+           <th>Full Name</th>
+           <th>username</th>
+           <th>Email</th>
+           <th>Phone number</th>
+           <th>Category</th>
+         </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+          	<td><%= user.full_name %></td>
+            <td><%= user.username %></td>
+            <td><%= user.email_id %></td>
+            <td><%= user.phone_number %></td>
+            <td><%= user.user_category %></td>
+            <td><%= link_to ' Show Profile ', admin_showprofile_path(:user_id => user.id) %></td>
+            <td><%= link_to 'Edit ', admin_edituser_path(:user_id => user.id) %></td>
+          </tr>
+        <% end %>
+      <tbody>
+    </table>
+  <% end %>
+<% end %>

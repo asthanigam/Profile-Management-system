@@ -1,0 +1,4 @@
+Users every 24 hours:
+  cron: "15 13 * * * "
+  class: "UserWorker"
+  queue: default

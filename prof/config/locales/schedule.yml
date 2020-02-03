@@ -1,0 +1,4 @@
+No of users created at every 24 hours:
+  cron: "0 0 * * *"
+  class: "UserWorker"
+  queue: default

@@ -1,0 +1,17 @@
+<h1>Sign Up</h1>
+<%= form_for @user do |f|%>
+  <%= f.label :FULL_NAME%><br>
+  <%= f.text_field :full_name%><br>
+  <%= f.label :USERNAME%><br>
+  <%= f.text_field :username%><br>
+  <%= f.label :EMAIL_ID%><br>
+  <%= f.text_field :email_id%><br>
+  <%= f.label :Contact_number%><br>
+  <%= f.text_field :phone_number%><br>
+  <%= f.label :Profile_type%><br>
+  <%=f.select :user_category, ['broker','buyer','seller']%><br>
+  <%= f.label :password%><br>
+  <%= f.password_field :password%><br>
+  <%= f.submit %>
+
+<%end%>
