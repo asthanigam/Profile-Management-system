@@ -16,6 +16,8 @@
     </div>
   <% end %>
  <p>
+  <%= form.label :Profile_id%><br>
+  <%= form.text_field :id%><br>
   <<%= form.label :FULL_NAME%><br>
   <%= form.text_field :full_name%><br>
   <%= form.label :USERNAME%><br>
@@ -28,6 +30,7 @@
   <%= form.select :user_category, ['buyer','seller','broker']%><br>
   <%= form.label :password%><br>
   <%= form.password_field :password%><br>
+ 
   <%= form.submit %>
 </p>
 <%end%>

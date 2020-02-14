@@ -26,8 +26,12 @@
   <%= form.text_field :email_id%><br>
   <%= form.label :Contact_number%><br>
   <%= form.text_field :phone_number%><br>
+  <%= form.label :parent_id%><br>
+  <%= form.text_field :parent_id%><br>
   <%= form.label :User_category%><br>
   <%= form.select :user_category, ['buyer','seller','broker']%><br>
+    <%= form.label :User_status%><br>
+  <%= form.select :user_status, ['inactive','active']%><br>
   <%= form.submit %>
 </p>
 <%end%>

@@ -7,9 +7,12 @@ def login
 end
 def create
 	
-   @user = User.find_by(username: params[:username])
-   if @user && @user.authenticate(params[:password])
+   @user = User.find_by("username = ? OR email_id = ? OR phone_number = ? ", params[:username].to_s,params[:username].to_s,params[:username].to_s)
+   if @user.user_status == "inactive"
+      render json: "User is deactivated"
+   elsif @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
+      
       Rails.cache.write(@user.id,@user)
       #render plain: 'Here'
       redirect_to '/users1/got_profile'#'/welcome'

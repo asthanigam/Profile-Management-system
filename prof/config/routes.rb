@@ -18,6 +18,7 @@ Rails.application.routes.draw do
    patch 'admin/edituser', to: 'admin#update'
    put 'admin/edituser', to: 'admin#update'
    get 'admin/showprofile', to: 'admin#showprofile'
+  
    require 'sidekiq/web'
    mount Sidekiq::Web => '/sidekiq'
    require 'sidekiq/cron/web'

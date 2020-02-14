@@ -8,7 +8,9 @@
   <%= f.text_field :email_id%><br>
   <%= f.label :Contact_number%><br>
   <%= f.text_field :phone_number%><br>
-  <%= f.label :Profile_type%><br>
+  <%= f.label :User_parent%><br>
+  <%= f.text_field :parent_id%><br>
+  <%= f.label :User_category%><br>
   <%=f.select :user_category, ['broker','buyer','seller']%><br>
   <%= f.label :password%><br>
   <%= f.password_field :password%><br>

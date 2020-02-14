@@ -1,4 +1,6 @@
-
+  <strong>Id :</strong>
+  <%= current_user.id %>
+</p>
   <strong>Full name:</strong>
   <%= current_user.full_name %>
 </p>
@@ -22,14 +24,22 @@
   <%= current_user.user_category %>
 </p>
 <p>
-  <strong>User category:</strong>
+  <strong>Created at:</strong>
   <%= current_user.created_at %>
 </p>
 <p>
-  <strong>User category:</strong>
+  <strong>Updated at:</strong>
   <%= current_user.updated_at %>
 </p>
- 
+  <strong>Parent id:</strong>
+  <%= current_user.parent_id %>
+</p>
+ <p>
+  <strong>User children:</strong>
+  <% current_user.children.each do |d| %>
+  <%= d.username  %>
+  <% end %>
+</p>
  
 
 <%= link_to 'edit', edit_user_path(current_user) %>

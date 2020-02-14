@@ -1,0 +1,3 @@
+{
+	"user": { "full_name": "Sankalp", "username": "sankalp", "email_id": "sankalp@gmail.com", "phone_number": "7463521856", "user_category": "seller", "password": "user@123" }
+}

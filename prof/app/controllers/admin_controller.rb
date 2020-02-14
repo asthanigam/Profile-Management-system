@@ -28,9 +28,21 @@ class AdminController < ApplicationController
   end
    def update
     @user = User.find_by(id: user_params[:id])
+    #if @user.update 
+     # else
+    #render json: {errors: @user.errors, message: "Not correct" } 
+   # end
     if @user.update(user_params)
+
+       @user = Rails.cache.read(@user.id)
+      if @user == nil
+      @user = User.find_by(id: user_params[:id])
+      Rails.cache.write(@user.id,@user)
+      end
       redirect_to admin_showprofile_path(:user_id => @user.id)
-    end
+    else
+    render json: {errors: @user.errors, message: "Not correct" } 
+   end
   end
   #def edit
     #render plain: "hi"
@@ -45,13 +57,20 @@ class AdminController < ApplicationController
   
   def reports
     #File.read("output.txt")
-    render plain: 'See output.txt file for number of users'
+    render file: 'output.txt', layout: false, content_type: 'text/plain'
+    #render plain: 'See output.txt file for number of users'
     #UserWorker.perform_async
     
   end
+  #def deactive
+   # @user = User.find(params[:user_id])
+   #  @user.user_status = "inactive"
+    # render plain: "user deactivated  "
+  #end
   private
     def user_params
-      params.require(:user).permit(:id, :full_name, :username, :email_id, :phone_number, :password, :user_category)
+
+      params.require(:user).permit(:id, :full_name, :username, :email_id, :phone_number, :parent_id,  :password, :user_category, :user_status)
     end
 
 
